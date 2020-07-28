@@ -1,0 +1,19 @@
+"HOW TO RUN THIS WEB APP"
+1. Download The zip file
+
+2. Extract it on the desktop
+
+3. open neo4j Desktop and follow the steps mentioned in the steps pdf file to load the data.csv into neo4j
+
+4. Make sure u remember the password u have given for the Database while creating it
+
+5. open flask_neo4j in some editor and change the server_password ='your Database password' in new.html
+
+6. Start the Database in neo4j    
+
+7. open the folder flask_neo4j in cmd prompt
+
+8. type cmd python app.py
+
+9. open localhost://5002 in google chrome and fire your queries
+  

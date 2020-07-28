@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #00BFFF;
+}
+
+.right {
+  right: 0;
+  background-color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+#viz {
+            width: 750px;
+            height: 700px;
+            font: 22pt arial;
+        }
+
+</style>
+
+<script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+</head>
+<body onload="draw()">
+
+<div class="split left"  id="main" >
+    {{ data | safe}}
+  <div class="centered">
+   
+  </div>
+</div>
+
+<div class="split right" id="viz">
+  <div class="centered">
+    
+  </div>
+</div>
+     
+</body>
+
+<script>
+    function draw() {
+        var config = {
+            container_id: "viz",
+            server_url: "bolt://localhost:7687",
+            server_user: "neo4j",
+            server_password: "your_password",
+            arrows: true,
+            labels: {
+                "Order": {
+                    caption: "sub",
+                    size: "pagerank",
+                    community: "community"
+                },
+                "Pred": {
+                    caption: "obj",
+                    size: "pagerank",
+                    community: "community"
+                }
+            },
+            relationships: {
+                "CONTAINS": {
+                    caption: true,
+                    thickness: "count"
+                }
+            },
+            // initial_cypher: "'MATCH (n) WHERE n.name = " + query + " RETURN n'"
+              initial_cypher: "MATCH p=()-->() RETURN p LIMIT 25"
+        }
+
+        var viz = new NeoVis.default(config);
+        viz.render();
+    }
+
+</script>
+
+
+
+</html> 

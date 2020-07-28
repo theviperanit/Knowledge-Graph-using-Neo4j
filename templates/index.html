@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NERKG</title>
+  <link rel="icon" type="image/png" href="../images/favicon.ico">
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  <!-- <link rel="stylesheet" media="screen and (max-width: 987px)" href="css/phone.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <div class="container-inner">
+      <div>
+        <a class="logo" href="https://in.tradingview.com/covid19/"> <img height="100px" src="../static/logocovid.png" class="cologo"></a>
+      </div>
+      <div>
+        <!-- <a href="https://www.kaggle.com/nmonath/knowledge-discovery-from-full-text-research-papers" style="margin-top: 10px; padding: 2px 2px;"><img height="20px" src="https://www.kaggle.com/static/images/favicon.ico"></a>
+        <a href="https://github.com/nmonath/kdcovid" style="margin-top: 10px; padding: 2px 2px;"><img height="20px" src="../images/github-logo.png"></a> -->
+        <a href="Home.html">Home</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron">
+    <div id="logo">
+      <img src="../static/logocovid.png" alt="Logo" class="j-logo">
+      <h1>Search the full text of CORD19 research papers on COVID 19</h1>
+    </div>
+    <div id="wrapper">
+      <div id="search_box">
+        <form class="search" action="./search" method="get" >
+          <div class="search-container">
+            <input type="text" id="search_term" name="search_term" required=""
+              placeholder="Enter Search e.g. Animal Models for Viral Infection">
+            <input type="submit" value="Search" class="submit">
+          </div>
+        </form>
+      </div>
+
+      <div id="canned_queries1" style="margin: 0px; padding: 0px">
+        <br>
+        <br>
+        <br>
+        <h4>Try out some of these queries!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+        <form action="./search" method="get" class="q_container">
+          <input type="submit" name="search_term" value="Treatments for SARS" class="q_inner">
+          <input type="submit" name="search_term" value="Animal models for viral infection" class="q_inner">
+          <input type="submit" name="search_term" value="Efficacy of zanamivir" class="q_inner">
+          <input type="submit" name="search_term" value="Antivirals effective for H1N1" class="q_inner">
+          <input type="submit" name="search_term" value="Protect healthcare workers" class="q_inner">
+          <input type="submit" name="search_term" value="Immunity studies for MERS" class="q_inner">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
